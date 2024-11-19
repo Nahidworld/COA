@@ -1,0 +1,58 @@
+
+;Write a program to display a t 0 x 10 solid box of asterisks.
+;Hint: declare a string in the data segment that specifies the box,
+;and display it with INT 2lh, function 9h.     
+
+.MODEL SMALL
+.STACK 100H
+.DATA    
+    STAR DB  0DH ,0AH, '**********$'; star for one line
+
+
+
+.CODE
+MAIN PROC
+    ;
+    MOV AX,@DATA
+    MOV DS, AX
+    
+    LEA DX,STAR  ;star line 1
+    MOV AH, 9
+    INT 21h  
+    ;display on the next line
+   
+    
+    LEA DX,STAR  ;star line 2
+    MOV AH, 9
+    INT 21h
+    LEA DX,STAR  ;star line 3
+    MOV AH, 9
+    INT 21h
+    LEA DX,STAR  ;star line 4
+    MOV AH, 9
+    INT 21h   
+    LEA DX,STAR  ;star line 5
+    MOV AH, 9
+    INT 21h
+    LEA DX,STAR  ;star line 6
+    MOV AH, 9
+    INT 21h
+    LEA DX,STAR  ;star line 7
+    MOV AH, 9
+    INT 21h
+    LEA DX,STAR  ;star line 8
+    MOV AH, 9
+    INT 21h
+    LEA DX,STAR  ;star line 9
+    MOV AH, 9
+    INT 21h
+    LEA DX,STAR  ;star line 10
+    MOV AH, 9
+    INT 21h
+ 
+    
+    MOV AH,4CH
+    INT 21h
+    
+    MAIN ENDP
+END MAIN
